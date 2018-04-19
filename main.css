@@ -1,0 +1,35 @@
+:root {
+	font-family: Roboto, sans-serif;
+	color: #303030;
+}
+
+.card {
+	background: white;
+	box-shadow: 0 0 8px 5px rgba(0, 0, 0, .1);
+	height: 260px;
+	width: 400px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	display: grid;
+	grid-template-columns: min-content auto;
+	grid-template-rows: min-content auto;
+	padding: 10px;
+	box-sizing: border-box;
+	grid-gap: 10px;
+}
+
+.card__photo {
+	grid-row: 1 / span 2;
+	height: 90px;
+	margin: auto;
+}
+
+.card__title {
+	margin: 0;
+	font-size: 20px;
+}
+
+.card__bio {
+	font-size: 11px;
+	line-height: 19px;
+}
