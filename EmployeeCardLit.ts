@@ -1,5 +1,6 @@
 import { Employee } from "./Employee.js";
-import {html, render, TemplateInstance, TemplateResult} from "./node_modules/lit-html/lit-html.js";
+import {TemplateInstance, TemplateResult} from "./node_modules/lit-html/lit-html.js";
+import {html, render, EventPart} from "./node_modules/lit-html/lib/lit-extended.js";
 
 export class EmployeeCardLit
 {

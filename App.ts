@@ -1,4 +1,5 @@
-import {html, render, TemplateInstance, TemplateResult} from "./node_modules/lit-html/lit-html.js";
+import {TemplateInstance, TemplateResult} from "./node_modules/lit-html/lit-html.js";
+import {html, render, EventPart} from "./node_modules/lit-html/lib/lit-extended.js";
 import { EmployeeCard } from "./EmployeeCard.js";
 import { EmployeeCardLit } from "./EmployeeCardLit.js";
 import { AppHeader } from "./AppHeader.js";
@@ -46,10 +47,11 @@ export class App
 		{
 			for (let e of employees)
 			{
+				new AppHeader().Render(document.body);
 				new EmployeeCard(e).Render(document.body);
 			}
 		}
 	}
 }
 
-document.body.onload = () => { new App().Render(true);};
+document.body.onload = () => { new App().Render(false);};
