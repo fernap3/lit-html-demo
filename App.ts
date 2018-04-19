@@ -1,4 +1,7 @@
 import {html, render, TemplateInstance, TemplateResult} from "./node_modules/lit-html/lit-html.js";
+import { EmployeeCard } from "./EmployeeCard.js";
+import { EmployeeCardLit } from "./EmployeeCardLit.js";
+import { AppHeader } from "./AppHeader.js";
 
 const employees = [
 	{
@@ -20,72 +23,33 @@ const employees = [
 
 export class App
 {
-	public Render(): void
+	public Render(useLit = true): void
 	{
-		render(html`
-			${employees.map(e => new EmployeeCardLit(e).Template)}
-		`, document.body);
+		if (useLit)
+		{
+			const employeeTemplates = [] as TemplateResult[];
+
+			for (let e of employees)
+				employeeTemplates.push(new EmployeeCardLit(e).Template);
+			
+			render(html`
+				${new AppHeader().Template}
+				${employeeTemplates}
+			`, document.body);
+
+			// render(html`
+			// 	${new AppHeader().Template}
+			// 	${employees.map(e => new EmployeeCardLit(e).Template)}
+			// `, document.body);
+		}
+		else
+		{
+			for (let e of employees)
+			{
+				new EmployeeCard(e).Render(document.body);
+			}
+		}
 	}
 }
 
-class EmployeeCard
-{
-	constructor(private employee: Employee)
-	{
-	}
-
-	public Render(parent: Node): void
-	{
-		const card = document.createElement("div");
-		card.className = "card";
-
-		const photo = document.createElement("img");
-		photo.className = "card__photo";
-		photo.src = this.employee.PhotoUrl;
-		card.appendChild(photo);
-
-		const title = document.createElement("h1");
-		title.className = "card__title";
-		title.innerText = this.employee.Name;
-		card.appendChild(title);
-
-		const bio = document.createElement("div");
-		bio.className = "card__bio";
-		bio.innerText = this.employee.Bio;
-		card.appendChild(bio);
-
-		parent.appendChild(card);
-	}
-}
-
-class EmployeeCardLit
-{
-	constructor(private employee: Employee)
-	{
-	}
-
-	public get Template(): TemplateResult
-	{
-		return html`
-			<div class="card">
-				<img class="card__photo" src="${this.employee.PhotoUrl}">
-				<h1 class="card__title">${this.employee.Name}</h1>
-				<div class="card__bio">${this.employee.Bio}</div>
-			</div>
-		`;
-	}
-
-	public Render(parent: HTMLElement)
-	{
-		render(this.Template, parent);
-	}
-}
-
-interface Employee
-{
-	Name: string;
-	Bio: string;
-	PhotoUrl: string;
-}
-
-document.body.onload = () => { new App().Render();};
+document.body.onload = () => { new App().Render(true);};

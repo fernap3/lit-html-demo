@@ -9,6 +9,44 @@ body {
 	align-items: center;
 }
 
+.app-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-left: 1em;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.user-button {
+	background-color: white;
+	border: 0;
+	cursor: pointer;
+	height: 64px;
+	width: 64px;
+	background-image: url(user.svg);
+	background-size: 32px;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: auto;
+	opacity: 0.6;
+	transition: all .1s ease-out;
+	outline: none;
+	border-radius: 3px;
+}
+
+.user-button:hover {
+	opacity: .8;
+}
+
+.user-button:active {
+	background-color: rgba(0, 0, 0, .1);
+}
+
 .card {
 	background: white;
 	box-shadow: 0 0 8px 5px rgba(0, 0, 0, .1);
