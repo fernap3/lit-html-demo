@@ -1,0 +1,24 @@
+{
+  "name": "lit-html-demo",
+  "version": "1.0.0",
+  "description": "## To Run 1. `git clone https://github.com/fernap3/lit-html-demo.git` 2. `cd lit-html-demo` 2. `npm install` 3. `http-server` 4. Browse to localhost:8080",
+  "main": "main.js",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "lit-html": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernap3/lit-html-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernap3/lit-html-demo/issues"
+  },
+  "homepage": "https://github.com/fernap3/lit-html-demo#readme"
+}
